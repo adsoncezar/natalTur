@@ -1,6 +1,5 @@
 package com.adson.ws.natalws.dominio;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -12,20 +11,19 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class AvaliacaoPontoTuristico {
-	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotEmpty
-	private String descricao;
+	private String autor;
+	
+	@NotEmpty
+	private String avaliacao;
 	
 	@NotNull
-	private boolean feito;
-	
-	@NotNull
-	private LocalDate dataLimite;
+	private LocalDate data;
 	
 	@NotNull
 	private int pontoTuristico;
@@ -38,28 +36,28 @@ public class AvaliacaoPontoTuristico {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getAutor() {
+		return autor;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 
-	public boolean isFeito() {
-		return feito;
+	public String getAvaliacao() {
+		return avaliacao;
 	}
 
-	public void setFeito(boolean feito) {
-		this.feito = feito;
+	public void setAvaliacao(String avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 
-	public LocalDate getDataLimite() {
-		return dataLimite;
+	public LocalDate getData() {
+		return data;
 	}
 
-	public void setDataLimite(LocalDate dataLimite) {
-		this.dataLimite = dataLimite;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
 	public int getPontoTuristico() {
@@ -69,4 +67,5 @@ public class AvaliacaoPontoTuristico {
 	public void setPontoTuristico(int pontoTuristico) {
 		this.pontoTuristico = pontoTuristico;
 	}
+
 }
