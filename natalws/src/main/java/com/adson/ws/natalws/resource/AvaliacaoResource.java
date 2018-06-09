@@ -42,6 +42,8 @@ public class AvaliacaoResource {
 	}
 	
 	//GET
+	//Comiatar
+	
 	@GetMapping
 	public List<AvaliacaoPontoTuristico> findAvaliacoes(){
 		return avaliacaoRepository.findAll(new Sort(Direction.ASC, "data"));
