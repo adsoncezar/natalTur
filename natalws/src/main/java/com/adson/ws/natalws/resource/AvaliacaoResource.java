@@ -41,6 +41,7 @@ public class AvaliacaoResource {
 		return avaliacaoRepository.findById(idAvaliacao).get();
 	}
 	
+	//GET
 	@GetMapping
 	public List<AvaliacaoPontoTuristico> findAvaliacoes(){
 		return avaliacaoRepository.findAll(new Sort(Direction.ASC, "data"));
@@ -53,9 +54,10 @@ public class AvaliacaoResource {
 		return avaliacaoRepository.save(avaliacao);
 	}
 	
+	//DELETE
 	@DeleteMapping("/{idAvaliacao}")
 	@ResponseStatus(code=HttpStatus.NO_CONTENT)
 	public void removeAvaliacao(@PathVariable Long idAvaliacao) {
-
+		avaliacaoRepository.deleteById(idAvaliacao);
 	}
 }
