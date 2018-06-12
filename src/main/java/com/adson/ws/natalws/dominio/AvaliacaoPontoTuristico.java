@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -22,8 +24,13 @@ public class AvaliacaoPontoTuristico {
 	@NotEmpty
 	private String avaliacao;
 	
-	@NotNull
+	@FutureOrPresent
 	private LocalDate data;
+	
+	@PrePersist
+	private void preInsert() {
+		data = LocalDate.now();
+	}
 	
 	@NotNull
 	private int pontoTuristico;
