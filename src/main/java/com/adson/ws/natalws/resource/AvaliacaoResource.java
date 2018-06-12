@@ -60,6 +60,7 @@ public class AvaliacaoResource {
 	@DeleteMapping("/{idAvaliacao}")
 	@ResponseStatus(code=HttpStatus.NO_CONTENT)
 	public void removeAvaliacao(@PathVariable Long idAvaliacao) {
-		avaliacaoRepository.deleteById(idAvaliacao);
+		AvaliacaoPontoTuristico ava = avaliacaoRepository.findById(idAvaliacao).get();
+		avaliacaoRepository.delete(ava);
 	}
 }
